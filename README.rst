@@ -18,8 +18,8 @@ Certbot DNS Plugin for DNSPod
 
 内容::
 
-    certbot_dns_plugins:dnspod_token_id = <token id>
-    certbot_dns_plugins:dnspod_token = <token>
+    dnspod_token_id = <token id>
+    dnspod_token = <token>
 
 chmod::
 
@@ -29,8 +29,8 @@ chmod::
 创建证书::
 
     sudo certbot certonly \
-    -a certbot-dns-plugins:dnspod \
-    --certbot-dns-plugins:dnspod-credentials ~/.secrets/certbot/dnspod.ini \
+    -a dnspod \
+    --dnspod-credentials ~/.secrets/certbot/dnspod.ini \
     -d example.com
 
 自动续期(可以放到crontab中执行)::
@@ -40,6 +40,7 @@ chmod::
 crontab(每周一的1:01分执行)::
 
     1 1 * * 1 certbot renew --deploy-hook "service nginx reload"
+
 
 其他
 =========
@@ -58,8 +59,8 @@ https://certbot.eff.org/docs/using.html#third-party-plugins
 
 而第三方插件的参数是::
 
-    --authenticator certbot-dns-plugins:dnspod
+    --authenticator dnspod
 
 或者::
 
-    -a certbot-dns-plugins:dnspod
+    -a dnspod
